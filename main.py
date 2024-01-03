@@ -16,3 +16,13 @@ class BoatStop:
         self.people_queue = queue.Queue()
         self.boats_at_stop = []
         self.current_time = 0
+
+        def passenger(self):
+            arrival_time = self.current_time + random.expovariate(1 / self.arrival_interval)
+            stay_time = random.uniform(5, 30)
+            passenger = Passenger(arrival_time, stay_time)
+            return passenger
+
+        def boat(self):
+            arrival_time = self.current_time + random.expovariate(1 / self.boat_interval)
+            return arrival_time

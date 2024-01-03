@@ -26,3 +26,11 @@ class BoatStop:
         def boat(self):
             arrival_time = self.current_time + random.expovariate(1 / self.boat_interval)
             return arrival_time
+
+        def board_passengers(self, boat):
+            free_seats = random.randint(1, boat.capacity)
+            boarded_passengers = []
+            for _ in range(min(free_seats, self.people_queue.qsize())):
+                passenger = self.people_queue.get()
+                boarded_passengers.append(passenger)
+            return boarded_passengers
